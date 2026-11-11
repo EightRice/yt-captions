@@ -11,6 +11,8 @@ YouTube API compliance review has something to look at.
 
 - Lists the caption tracks already on a video.
 - Uploads `.srt` files as caption tracks, one per language, skipping languages that already exist.
+- Uploads my own videos (long-form and Shorts cut from them) with title, description, tags,
+  visibility, thumbnail and subtitles (`upload_video.py`).
 
 ## What it does not do
 
@@ -29,6 +31,11 @@ ends the script's access. See [PRIVACY.md](PRIVACY.md) and [TERMS.md](TERMS.md).
 ```
 pip install google-api-python-client google-auth-oauthlib
 python upload_captions.py VIDEO_ID captions/
+```
+
+```
+python upload_video.py my_video.mp4 --title "Title" --description-file desc.txt --privacy public --captions captions/
+python upload_video.py --status VIDEO_ID
 ```
 
 Caption files are named by language code: `captions/ro.srt`, `captions/pt-BR.srt`, `captions/zh-Hans.srt`.
